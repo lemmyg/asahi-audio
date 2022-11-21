@@ -62,7 +62,10 @@ def install_firs(system):
 
 
 def main():
-    machine = get_system()
+    #forcing j316 config
+    #machine = get_system()
+    machine = "j316"
+    
 
     if machine == -1:
         print(f"Sorry, the {machine} is not currently supported.")
