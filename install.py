@@ -7,6 +7,7 @@
 import os
 import shutil
 import time
+import glob
 
 def get_system():
     # Use the list of subdirs in 'conf' as our list of supported machines
@@ -32,39 +33,27 @@ def install_pw_conf(system):
     for us on the fly, we must install a specific configuration based on the
     user's machine. Luckily, it's all pretty trivial stuff.
     '''
-    try:
-        shutil.copy2(f"conf/{system}.conf",
-                     f"/etc/pipewire/pipewire.conf.d/10-{system}-sink.conf")
-    except FileExistsError:
-        choice = input("File exists. Replace? (Y/n)")
-        if choice == "n":
-            return -1
-        else:
-            os.remove(f"/etc/pipewire/pipewire.conf.d/10-{system}-sink.conf")
-            shutil.copy2(f"conf/{system}.conf",
-                         f"/etc/pipewire/pipewire.conf.d/10-{system}-sink.conf")
-            return
+    #clean up the existing config files
+    for configPath in glob.glob("/etc/pipewire/pipewire.conf.d/10-*-sink.conf"):
+         os.remove(configPath)
+    shutil.copy2(f"conf/{system}.conf",
+                 f"/etc/pipewire/pipewire.conf.d/10-{system}-sink.conf")
+    return
 
 
 def install_firs(system):
-    try:
-        shutil.copytree(f"firs/{system}",
-                        f"/usr/share/pipewire/devices/apple/{system}")
-    except FileExistsError:
-        choice = input("Files exist. Replace? (Y/n)")
-        if choice == "n":
-            return -1
-        else:
-            shutil.rmtree(f"/usr/share/pipewire/devices/apple/{system}")
-            shutil.copytree(f"firs/{system}",
-                            f"/usr/share/pipewire/devices/apple/{system}")
-            return
+    
+    #clean up the existing config files
+    shutil.rmtree(f"/usr/share/pipewire/devices/apple")
+    shutil.copytree(f"firs/{system}",
+                    f"/usr/share/pipewire/devices/apple/{system}")
+    return
 
 
 def main():
     #forcing j316 config
     #machine = get_system()
-    machine = "j316"
+    machine = "t2_161"
     
 
     if machine == -1:
