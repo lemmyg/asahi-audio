@@ -26,7 +26,7 @@ cd asahi-audio
 bash mac-audio
 ```
 
-## Uninstallation
+## Uninstall
 ```sh
 sudo rm /etc/pipewire/pipewire.conf.d/10-*-sink.conf
 sudo rm -r /usr/share/pipewire/devices/apple
