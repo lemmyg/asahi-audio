@@ -23,7 +23,7 @@ clone the git branch and install the FIRs config:
 ```sh
 git clone -b macbookT2_16_1 https://github.com/lemmyg/asahi-audio.git
 cd asahi-audio
-bash mac-audio
+bash mac-audio.sh
 ```
 
 ## Uninstall
