@@ -13,11 +13,13 @@ For more information please visit the original project at [asahi-audio](https://
 First follow [t2-audio](https://wiki.t2linux.org/guides/audio-config) instructions and install pipewire.
 
 Once the audio is working, you can install the FIRs config in your system.
-Note that this configuration has been tested only on Ubuntu 22.04.
+Note that this configuration has been tested on Ubuntu 22.04.
 
 Install the following dependecies:
 ```sh
-sudo apt install pipewire pipewire-pulse wireplumber lsp-plugins calf-plugins
+sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
+sudo apt install pipewire pipewire-audio-client-libraries libpipewire-0.3-modules libspa-0.2-{bluetooth,jack,modules} pipewire{,-{audio-client-libraries,pulse,bin,tests}}
+sudo apt install wireplumber lsp-plugins calf-plugins
 ```
 clone the git branch and install the FIRs config:
 ```sh
