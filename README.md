@@ -28,6 +28,8 @@ git clone -b macbookT2_16_1 https://github.com/lemmyg/asahi-audio.git
 cd asahi-audio
 bash mac-audio.sh
 ```
+Reboot and open the audio settings.
+"Apple Audio Driver Speakers" should be at 100% and "MacBook Pro J31x Speakers" selected as main volumen control. Usually at 75% max.
 
 ## Uninstall
 ```sh
