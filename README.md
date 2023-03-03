@@ -6,7 +6,7 @@ The project has been adjusted to test Asahi Linux audio workflow on a MacBook Pr
 
 New FIRs were created measuring the MacBook Pro 16,1 with UMIK-1 mic and manually created FIRs of EQ filters using REW.
 
-For more information please visit the original project at [asahi-audio](https://github.com/chadmed/asahi-audio)
+For more information about Asahi audio, please visit the original project at [asahi-audio](https://github.com/chadmed/asahi-audio)
 
 ## Installation instructions
 
