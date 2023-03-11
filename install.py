@@ -8,23 +8,18 @@ import os
 import shutil
 import time
 import glob
+import subprocess
+
+VALID_MODELS = {"MacBookPro16,1": "t2_161"}
 
 def get_system():
-    # Use the list of subdirs in 'conf' as our list of supported machines
-    supported = os.listdir(path="./conf/")
-
-    # Get rid of '.conf'
-    for i, machine in enumerate(supported):
-        supported[i] = machine[0:4]
-
-    with open("/sys/firmware/devicetree/base/compatible", "r") as sys:
-        sys = sys.read()
-        compat = sys[6:10] # Get only the 4 chars after 'apple,'
-
-        if compat in supported:
-            return compat
-        else:
-            return -1
+    # Get from the system the current model
+    p = subprocess.Popen('dmidecode -s system-product-name',  shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr=p.communicate()
+    if stderr:
+        raise Exception("Following error has been found: {}".format(stderr))
+    return stdout.decode('utf-8').strip()
+    
 
 
 def install_pw_conf(system):
@@ -51,16 +46,15 @@ def install_firs(system):
 
 
 def main():
-    #forcing j316 config
-    #machine = get_system()
-    machine = "t2_161"
     
-
-    if machine == -1:
-        print(f"Sorry, the {machine} is not currently supported.")
+    model = get_system()
+    valid = model in VALID_MODELS
+    machine = VALID_MODELS.get(model)
+    if not valid:
+        print(f"Sorry, the {model} model is not currently supported.")
         exit()
-
-    print(f"This machine is a {machine}.\n")
+    
+    print(f"This machine is a supported {model} model.\n")
 
     input("Press Enter to continue...")
 
