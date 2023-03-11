@@ -1,10 +1,10 @@
-## Testing Asahi Linux userspace audio configuration on 16,1 T2 Mac.
+## Testing Asahi Linux userspace audio configuration on  MacBook Pro 16 2019 T2.
 
 Thanks to chadmed and Asahi Linux.
 
-The project has been adjusted to test Asahi Linux audio workflow on a MacBook Pro 16,1 2019 with T2 audio driver.
+The project has been adjusted to test Asahi Linux audio workflow on a MacBook Pro 16 2019 with T2 audio driver.
 
-New FIRs were created measuring the MacBook Pro 16,1 with UMIK-1 mic and manually created FIRs of EQ filters using REW.
+New FIRs were created measuring the MacBook Pro 16 with UMIK-1 mic and manually created FIRs of EQ filters using REW.
 
 For more information about Asahi audio, please visit the original project at [asahi-audio](https://github.com/chadmed/asahi-audio)
 
