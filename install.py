@@ -39,7 +39,8 @@ def install_pw_conf(system):
 def install_firs(system):
     
     #clean up the existing config files
-    shutil.rmtree(f"/usr/share/pipewire/devices/apple")
+    if os.path.exists("/usr/share/pipewire/devices/apple"):
+        shutil.rmtree(f"/usr/share/pipewire/devices/apple")
     shutil.copytree(f"firs/{system}",
                     f"/usr/share/pipewire/devices/apple/{system}")
     return
