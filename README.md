@@ -17,12 +17,14 @@ Note that this configuration has been tested on Ubuntu 22.04 and 22.10.
 For Ubuntu user, 22.10 is recommended as Pipewire is properly integrated.
 
 Install the following dependecies:
+
 ```sh
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
 sudo apt install pipewire pipewire-audio-client-libraries libpipewire-0.3-modules libspa-0.2-{bluetooth,jack,modules} pipewire{,-{audio-client-libraries,pulse,bin,tests}}
-sudo apt install wireplumber lsp-plugins calf-plugins swh-plugins```
-
+sudo apt install wireplumber lsp-plugins calf-plugins swh-plugins
+```
 clone the git branch and install the FIRs config:
+
 ```sh
 git clone -b macbookT2_16_1 https://github.com/lemmyg/asahi-audio.git
 cd asahi-audio
