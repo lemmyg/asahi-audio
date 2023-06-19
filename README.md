@@ -1,3 +1,5 @@
+THIS BRANCH IS DEPRECATED AND THE CODE MOVED TO https://github.com/lemmyg/t2-apple-audio-dsp
+
 ## Testing Asahi Linux userspace audio configuration on  MacBook Pro 16 2019 T2.
 
 Thanks to chadmed and Asahi Linux.
